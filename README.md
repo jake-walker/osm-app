@@ -4,15 +4,11 @@
 
 > I don't own Online Scout Manager!
 
+[Online Scout Manager](https://www.onlinescoutmanager.co.uk/) is a website which allows people running scout troops to have less admin by handling payments, etc..
+
 ## Why I did it
 
-Online Scout Manager is a website which allows people running scout troops to have less admin by handling payments, etc..
-
-I absolutely hate the design of Online Scout Manager just look at the login page:
-
-![](https://i.imgur.com/AdliD8g.png)
-
-So I decided to make an app, I asked them for an API key which I realized was only for leaders and not for parent accounts so I had to mess around with parsing HTML pages.
+I absolutely hate the design of Online Scout Manager, so I decided to make an app. They provide an API for getting information like upcoming events and the current programme. I asked for an API key which after testing, only worked with leader accounts (I had a parent account). So I had to revert to observing web requests and parsing webpages.
 
 ## Features
 
@@ -30,6 +26,8 @@ cd osm-app
 ```
 
 Try it in your browser: `ionic serve`
+
+Build: `ionic build android`, `ionic build ios`.
 
 ## Download
 
