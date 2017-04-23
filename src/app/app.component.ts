@@ -3,8 +3,12 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Storage } from '@ionic/storage';
+
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { ProgrammePage } from '../pages/programme/programme';
+import { EventsPage } from '../pages/events/events';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,13 +20,26 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public storage: Storage) {
+    storage.ready().then(() => {
+      storage.get("email").then((val) => {
+        if (!val) {
+          storage.get("password").then((val) => {
+            if (!val) {
+              this.rootPage = LoginPage;
+            }
+          });
+        }
+      });
+
+      this.initializeApp();
+    });
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Programme', component: ProgrammePage },
+      { title: 'Events', component: EventsPage }
     ];
 
   }

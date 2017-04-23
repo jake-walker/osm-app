@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span [innerHTML]="event.event"></span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="calendar" item-left></ion-icon>
+      <span [innerHTML]="event.when"></span>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="compass" item-left></ion-icon>
+      <span [innerHTML]="event.where"></span>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="cash" item-left></ion-icon>
+      <span [innerHTML]="event.cost"></span>
+    </ion-item>
+    <ion-item *ngIf="!event.attending">
+      <ion-icon name="checkmark" item-left></ion-icon>
+      Sign up before <span [innerHTML]="event.signUpBefore"></span>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-icon name="information-circle" item-left></ion-icon>
+      <div [innerHTML]="event.details"></div>
+    </ion-item>
+  </ion-list>
+</ion-content>
