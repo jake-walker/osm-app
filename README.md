@@ -32,3 +32,7 @@ Build: `ionic build android`, `ionic build ios`.
 ## Download
 
 See the [releases page](https://github.com/jake-walker/osm-app/releases/) for the latest build.
+
+### Installing on Android
+
+To install APKs on Android manually you will need to open your Settings app, scroll down to Security and then check Unknown Sources. You can then download the APK on your device through the browser or by downloading it on your computer and copying it to your device. Then, open your file manager (if you don't have one installed, most are free on the Play Store) and locate the downloaded `.APK` file and press it to open the installer. **It is recommended to turn off Unknown Sources after you have finished installing it.**

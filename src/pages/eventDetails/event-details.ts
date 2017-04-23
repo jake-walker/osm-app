@@ -9,7 +9,6 @@ import { LoadingController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 import cheerio from 'cheerio';
-import cheerioTableparser from 'cheerio-tableparser';
 
 @Component({
   selector: 'page-event-details',

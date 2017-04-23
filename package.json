@@ -1,9 +1,8 @@
 {
-  "name": "ionic-hello-world",
-  "version": "0.0.0",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
-  "private": true,
+  "name": "osm-app",
+  "version": "1.1.0",
+  "author": "Jake Walker",
+  "homepage": "https://jakewalker.xyz/",
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
@@ -46,5 +45,5 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [],
-  "description": "osm: An Ionic project"
+  "description": "An unofficial Online Scout Manager app for parents."
 }
