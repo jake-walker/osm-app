@@ -12,9 +12,9 @@ I absolutely hate the design of Online Scout Manager, so I decided to make an ap
 
 ## Features
 
-- [ ] Events List
-- [ ] Event Details
-- [ ] Programme List
+- [x] Events List
+- [x] Event Details
+- [x] Programme List
 - [ ] Offline Support
 
 ## Getting Started
@@ -31,4 +31,4 @@ Build: `ionic build android`, `ionic build ios`.
 
 ## Download
 
-*Sorry, at the moment there aren't any download links because the app isn't ready yet.*
+See the [releases page](https://github.com/jake-walker/osm-app/releases/) for the latest build.
