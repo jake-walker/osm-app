@@ -10,6 +10,18 @@
 
 I absolutely hate the design of Online Scout Manager, so I decided to make an app. They provide an API for getting information like upcoming events and the current programme. I asked for an API key which after testing, only worked with leader accounts (I had a parent account). So I had to revert to observing web requests and parsing webpages.
 
+## Screenshots
+
+<details>
+  <summary>View Screenshots</summary>
+  ![](http://i.imgur.com/zCLI7S3.png)
+  ![](http://i.imgur.com/YmN1EvM.png)
+  ![](http://i.imgur.com/FJttyk5.png)
+  ![](http://i.imgur.com/Bn0weYu.png)
+  ![](http://i.imgur.com/CkFrqbu.png)
+  ![](http://i.imgur.com/MSdAsIU.png)
+</details>
+
 ## Features
 
 - [x] Events List

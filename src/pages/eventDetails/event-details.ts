@@ -27,6 +27,7 @@ export class EventDetailsPage {
 
   constructor(public navCtrl: NavController, public http: HTTP, public storage: Storage, public loadingCtrl: LoadingController, public params: NavParams) {
     this.event = this.params.get("event");
+
     let loader = this.loadingCtrl.create({
       content: "Downloading " + this.event.event + "..."
     });
