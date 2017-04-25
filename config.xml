@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="xyz.jakewalker.osm" version="1.1.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Online Scout Manager</name>
-  <description>An unofficial Online Scout Manager app for parents.</description>
+<widget id="xyz.jakewalker.scoutpenknife" version="1.1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Scout Penknife</name>
+  <description>An app with many utilities for a scout.</description>
   <author email="hello@jakewalker.xyz" href="https://jakewalker.xyz/">Jake Walker</author>
   <content src="index.html"/>
   <access origin="*"/>
   <allow-navigation href="http://ionic.local/*"/>
   <allow-navigation href="http://192.168.1.104:8100"/>
+  <allow-navigation href="http://10.32.215.2:8100"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
