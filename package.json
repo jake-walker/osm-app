@@ -1,6 +1,6 @@
 {
-  "name": "osm-app",
-  "version": "1.1.0",
+  "name": "scout-penknife",
+  "version": "1.0.0",
   "author": "Jake Walker",
   "homepage": "https://jakewalker.xyz/",
   "scripts": {
@@ -26,6 +26,12 @@
     "@ionic/storage": "2.0.1",
     "cheerio": "^0.22.0",
     "cheerio-tableparser": "^1.0.1",
+    "cordova-android": "7.0.0",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-webview": "^1.1.19",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-whitelist": "^1.3.3",
     "ionic-angular": "3.0.1",
     "ionicons": "3.0.0",
     "rxjs": "5.1.1",
@@ -45,5 +51,17 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [],
-  "description": "An unofficial Online Scout Manager app for parents."
+  "description": "Scout Penknife is an app which is designed for scouts which provides useful tools and utilities.",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }
