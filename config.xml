@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="me.jakew.scoutpenknife" version="1.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="xyz.jakewalker.scoutpenknife" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Scout Penknife</name>
-    <description>Scout Penknife is an app which is designed for scouts which provides useful tools and utilities.</description>
+    <description>An app with many utilities for a scout.</description>
     <author email="hi@jakew.me" href="https://jakew.me/">Jake Walker</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.133:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -77,9 +77,13 @@
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
     <plugin name="cordova-plugin-whitelist" spec="1.3.3" />
+    <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
-    <plugin name="cordova-plugin-ionic-webview" spec="1.1.19" />
-    <plugin name="cordova-plugin-ionic-keyboard" spec="2.0.5" />
-    <engine name="android" spec="~7.0.0" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
+    <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <plugin name="cordova-plugin-advanced-http" spec="2.0.2" />
+    <plugin name="cordova-sqlite-storage" spec="2.6.0" />
+    <allow-navigation href="http://192.168.1.133:8100" sessionid="43856422" />
+    <engine name="android" spec="7.1.4" />
 </widget>

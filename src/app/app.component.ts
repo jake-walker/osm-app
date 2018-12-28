@@ -3,12 +3,10 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Storage } from '@ionic/storage';
-
 import { HomePage } from '../pages/home/home';
-import { ProgrammePage } from '../pages/programme/programme';
-import { EventsPage } from '../pages/events/events';
-import { LoginPage } from '../pages/login/login';
+import { OsmProgrammePage } from '../pages/osm/programme/programme';
+import { OsmEventsPage } from '../pages/osm/events/events';
+import { SettingsPage } from '../pages/settings/settings';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,43 +14,24 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage:any = HomePage;
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public storage: Storage) {
-    storage.ready().then(() => {
-      storage.get("email").then((val) => {
-        if (!val) {
-          storage.get("password").then((val) => {
-            if (!val) {
-              this.rootPage = LoginPage;
-            }
-          });
-        }
-      });
-
-      this.initializeApp();
-    });
-
-    // used for an example of ngFor and navigation
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Programme', component: ProgrammePage },
-      { title: 'Events', component: EventsPage }
+      { title: 'Programme', component: OsmProgrammePage },
+      { title: 'Events', component: OsmEventsPage },
+      { title: 'Settings', component: SettingsPage }
     ];
 
-  }
-
-  initializeApp() {
-    this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      this.statusBar.overlaysWebView(false);
-      this.statusBar.backgroundColorByHexString('#5E35B1');
+    platform.ready().then(() => {
+      statusBar.overlaysWebView(false);
+      statusBar.backgroundColorByHexString('#9c27b0');
 
       setTimeout(() => {
-        this.splashScreen.hide();
+        splashScreen.hide();
       }, 100);
     });
   }

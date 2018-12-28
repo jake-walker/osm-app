@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Settings</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Online Scout Manager
+    </ion-list-header>
+    <div *ngIf="loggedInAs == ''">
+      <ion-item (click)="login()">
+        Login
+      </ion-item>
+    </div>
+    <div *ngIf="loggedInAs != ''">
+      <ion-item (click)="logout()">
+        <h2>Logout</h2>
+        <h3>Currently logged in as <b>{{ loggedInAs }}</b></h3>
+      </ion-item>
+      <ion-item (click)="sync()">
+        <h2>Force Sync</h2>
+        <h3>Last Synced <b>{{ cache.lastUpdate | date:'medium' }}</b></h3>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <div padding>
+    <h3 ion-text color="danger">Known Issues</h3>
+    <p ion-text color="danger"><i>
+      Due to the way that the parent portal is made this app needs to try and act like a
+      web browser when logging in and fetching data, then pull out information from the
+      code that is returned. <b>This means that if OSM make any changes to the way
+      pages look, or how people login to the parent portal in OSM, this app will be crippled
+      until an update is released by me.</b>
+    </i></p>
+  </div>
+
+  <div padding>
+    <h3 ion-text>I'm Open Source!</h3>
+    <p ion-text>
+      The code for this app is available on GitHub! Feel free to contribute new features,
+      fix bugs and other things.
+    </p>
+    <button ion-button icon-start color="dark" onclick="window.open('https://github.com/jake-walker/scout-penknife', '_system', 'location=yes'); return false;">
+      <ion-icon name="logo-github"></ion-icon>
+      GitHub
+    </button>
+  </div>
+
+  <div padding>
+    <h3 ion-text>About</h3>
+    <p ion-text>
+      Hi! I'm Jake Walker. I'm the main developer of this app and I built it because
+      I'm an explorer scout myself, so this app is useful for me.
+    </p>
+    <p ion-text>
+      Online Scout Manager is an online tool which my scout group uses to manage
+      the programme aswell as payments and events. I like the idea of OSM but
+      unfortunately the company behind it aren't thinking about parents and
+      teenagers too much. The parent part has a very outdated (but still functional)
+      design which I can't stand to be quite frank. It looks to me that all of the development
+      work goes into the leader part of OSM (which is somewhat understandable as
+      OSM is actually built by leaders). Leaders have access to a beautiful UI for
+      managing things plus an offline web app which the OSM developers hasn't bought
+      to parents and teenagers using OSM.
+    </p>
+    <p ion-text>
+      That brings me on nicely to the reason I made Scout Penknife in the first place.
+      I can't stand looking at the outdated parent dashboard, at first I used the
+      available iCal calendar but as you can probably imagine, it lacks a lot of functionality
+      that the full site has. I wanted to basically view all of the information on OSM
+      but on-the-go without a connection and on my phone including the noticeboard, events
+      and programme. All of this is what I've tried to make Scout Penknife do.
+    </p>
+  </div>
+
+  <div padding>
+    <h3 ion-text>Debug Data</h3>
+    <p ion-text>This is the data that has been fetched from OSM and is cached on your device for offline use.</p>
+    <pre>{{ cache | json }}</pre>
+  </div>
+</ion-content>

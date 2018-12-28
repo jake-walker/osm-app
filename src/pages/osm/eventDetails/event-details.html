@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span [innerHTML]="event.event"></span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="calendar" item-left></ion-icon>
+      <span [innerHTML]="event.when"></span>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="compass" item-left></ion-icon>
+      <span [innerHTML]="event.where"></span>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="cash" item-left></ion-icon>
+      <span [innerHTML]="event.cost"></span>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="checkmark" item-left></ion-icon>
+      <h2 *ngIf="event.attending" ion-text color="secondary">Attending</h2>
+      <h2 *ngIf="!event.attending" ion-text color="danger">{{ event.attendingtext }}</h2>
+      <h3 *ngIf="!event.attending"><i>Sign up before <span [innerHTML]="event.signUpBefore"></span></i></h3>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+    <h3>Details</h3>
+    <div [innerHTML]="event.details"></div>
+  </div>
+</ion-content>

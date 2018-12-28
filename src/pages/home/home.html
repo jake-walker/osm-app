@@ -7,10 +7,48 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <p>
-    TODO: Put summary of data here.
-  </p>
+<ion-content>
+  <div *ngIf="osmLoggedIn && data">
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-card>
+      <ion-card-header>
+        Upcoming Meetings
+      </ion-card-header>
+
+      <ion-list *ngIf="data.programme.length > 0">
+        <button ion-item *ngFor="let event of data.programme.slice(0, 5)" (click)="programmeDetails(event)">
+          <h2 [innerHTML]="event.name"></h2>
+          <p><span [innerHTML]="event.date"></span> • <span [innerHTML]="event.time"></span></p>
+        </button>
+      </ion-list>
+
+      <p ion-text padding *ngIf="data.programme.length <= 0">There are no upcoming meetings planned.</p>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        Upcoming Events
+      </ion-card-header>
+
+      <ion-list *ngIf="data.events.length > 0">
+        <button ion-item *ngFor="let event of data.events.slice(0, 5)" (click)="eventDetails(event)">
+          <h2 [innerHTML]="event.event"></h2>
+          <p><span [innerHTML]="event.date"></span> • <span [innerHTML]="event.cost"></span> • <ion-badge [innerHTML]="event.attendingtext" [color]="event.attending ? 'secondary' : 'danger'"></ion-badge></p>
+        </button>
+      </ion-list>
+
+      <p ion-text padding *ngIf="data.events.length <= 0">There are no upcoming events planned.</p>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        Noticeboard
+      </ion-card-header>
+      <ion-card-content [innerHTML]="data.noticeboard">
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div padding *ngIf="!osmLoggedIn">
+    This app works best with Online Scout Manager. Login on the settings page.
+  </div>
 </ion-content>

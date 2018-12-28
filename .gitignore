@@ -13,6 +13,8 @@ log.txt
 npm-debug.log*
 
 .idea/
+.ionic/
+.sourcemaps/
 .sass-cache/
 .tmp/
 .versions/
@@ -21,7 +23,6 @@ dist/
 node_modules/
 tmp/
 temp/
-hooks/
 platforms/
 plugins/
 plugins/android.json
@@ -32,15 +33,3 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
-
-resources/feature-graphic\.png
-
-resources/feature-graphic\.psd
-
-resources/icon\.png
-
-android-release\.apk
-
-jakewalkerapps\.keystore
-
-release\.bat

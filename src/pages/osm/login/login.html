@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>OSM Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p>
+    Please login using your Online Scout Manager parent account.
+  </p>
+
+  <p ion-text color="danger">
+    <b>
+      Your email and password are ONLY stored on this device and only ever sent to the
+      Online Scout Manager website.
+    </b>
+  </p>
+
+  <form [formGroup]="loginForm" (ngSubmit)="doLogin($event)">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button block type="submit">Login</button>
+  </form>
+</ion-content>

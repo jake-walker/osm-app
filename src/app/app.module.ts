@@ -1,62 +1,57 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HTTP } from '@ionic-native/http';
 
 import { MyApp } from './app.component';
+
 import { HomePage } from '../pages/home/home';
-import { ProgrammePage } from '../pages/programme/programme';
-import { EventsPage } from '../pages/events/events';
-import { LoginPage } from '../pages/login/login';
-import { EventDetailsPage } from '../pages/eventDetails/event-details';
-import { ProgrammeDetailsPage } from '../pages/programmeDetails/programme-details';
+import { SettingsPage } from '../pages/settings/settings';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { OsmProgrammePage } from '../pages/osm/programme/programme';
+import { OsmEventsPage } from '../pages/osm/events/events';
+import { OsmLoginPage } from '../pages/osm/login/login';
+import { OsmEventDetailsPage } from '../pages/osm/eventDetails/event-details';
+import { OsmProgrammeDetailsPage } from '../pages/osm/programmeDetails/programme-details';
 
-import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
-
-const cloudSettings: CloudSettings = {
-  'core': {
-    'app_id': '57bb799f'
-  }
-};
+import { OsmProvider } from '../providers/osm/osm';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ProgrammePage,
-    EventsPage,
-    LoginPage,
-    EventDetailsPage,
-    ProgrammeDetailsPage
+    SettingsPage,
+    OsmProgrammePage,
+    OsmEventsPage,
+    OsmLoginPage,
+    OsmEventDetailsPage,
+    OsmProgrammeDetailsPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot(),
-    ReactiveFormsModule,
-    HttpModule,
-    CloudModule.forRoot(cloudSettings)
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ProgrammePage,
-    EventsPage,
-    LoginPage,
-    EventDetailsPage,
-    ProgrammeDetailsPage
+    SettingsPage,
+    OsmProgrammePage,
+    OsmEventsPage,
+    OsmLoginPage,
+    OsmEventDetailsPage,
+    OsmProgrammeDetailsPage
   ],
   providers: [
+    HTTP,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    OsmProvider
   ]
 })
 export class AppModule {}

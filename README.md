@@ -1,37 +1,22 @@
-<h1 align="center">
-  <img
-    style="border-radius: 5px;"
-    src="resources/android/icon/drawable-xhdpi-icon.png">
-</h1>
+# Scout Penknife
 
-<h2 align="center">
-  Scout Penknife
-</h2>
+[Download](#download)
 
-<p align="center">
-  <a href="https://github.com/jake-walker/scout-penknife/releases/">
-    <img
-      alt="GitHub (pre-)release"
-      src="https://img.shields.io/github/release/jake-walker/scout-penknife/all.svg?style=for-the-badge">
-  </a>
-</p>
+Scout Penknife is an app which is designed for scouts which provides useful tools and utilities, [see below for a full list of features](#features).
 
+## Todo
 
+- [ ] Connectivity check before syncing
 
 ## Features
 
 - [x] Online Scout Manager Support *(parent accounts only)*
-  - [ ] Read
-    - [ ] Notices
-    - [ ] Payments
-    - [x] Events
-    - [x] Programme
-    - [ ] Badges
-  - [ ] Write
-    - [ ] Events - Confirm Attendance
-  - [ ] Offline Support
+  - [x] Events List
+  - [x] Event Details
+  - [x] Programme List
+  - [x] Offline Support
 
-## Building
+## Getting Started
 
 ```
 npm install -g cordova ionic
@@ -46,7 +31,7 @@ ionic build android
 ionic build ios
 ```
 
-See [Ionic Documentation](http://ionicframework.com/docs/v1/guide/publishing.html) for more info on building apps.
+See [Ionic Documentation](http://ionicframework.com/docs/v3/guide/publishing.html) for more info on building apps.
 
 ## Download
 

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>OSM Programme</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="programme.length > 0">
+    <button ion-item *ngFor="let event of programme" (click)="programmeDetails(event)">
+      <h2 [innerHTML]="event.name"></h2>
+      <p><span [innerHTML]="event.date"></span> • <span [innerHTML]="event.time"></span></p>
+    </button>
+  </ion-list>
+  <p ion-text *ngIf="programme.length <= 0" padding>
+    There are no upcoming meetings planned.
+  </p>
+</ion-content>
