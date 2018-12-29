@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { HTTP } from '@ionic-native/http';
+import { HeaderColor } from '@ionic-native/header-color';
+import { Network } from '@ionic-native/network';
 
 import { MyApp } from './app.component';
 
@@ -47,6 +49,8 @@ import { OsmProvider } from '../providers/osm/osm';
     OsmProgrammeDetailsPage
   ],
   providers: [
+    Network,
+    HeaderColor,
     HTTP,
     StatusBar,
     SplashScreen,

@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { OsmProgrammePage } from '../pages/osm/programme/programme';
 import { OsmEventsPage } from '../pages/osm/events/events';
 import { SettingsPage } from '../pages/settings/settings';
+import { HeaderColor } from '@ionic-native/header-color';
+import { OsmProvider } from '../providers/osm/osm';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +20,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, headerColor: HeaderColor, public osm: OsmProvider) {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Programme', component: OsmProgrammePage },
@@ -29,6 +31,8 @@ export class MyApp {
     platform.ready().then(() => {
       statusBar.overlaysWebView(false);
       statusBar.backgroundColorByHexString('#9c27b0');
+
+      headerColor.tint('#9c27b0');
 
       setTimeout(() => {
         splashScreen.hide();

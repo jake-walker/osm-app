@@ -39,12 +39,16 @@ export class SettingsPage {
     const loader = this.loadingCtrl.create({
       content: "Syncing..."
     });
-    loader.present();
-    this.osm.sync(true).then((data) => {
+    this.osm.sync(true, loader).then((data) => {
       this.cache = data;
       loader.dismiss();
     }).catch((error) => {
-      alert(error);
+      this.alertCtrl.create({
+        title: "Problem syncing!",
+        subTitle: error,
+        buttons: ["OK"]
+      }).present();
+      loader.dismiss();
     });
   }
 

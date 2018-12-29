@@ -6,15 +6,27 @@ import { Storage } from '@ionic/storage';
 
 import cheerio from 'cheerio';
 import cheerioTableparser from 'cheerio-tableparser';
+import { Network } from '@ionic-native/network';
 
 @Injectable()
 export class OsmProvider {
   sid: any = "";
   sed: any = "";
   cache: any = {};
+  connected: boolean = false;
 
-  constructor(public http: HTTP, public storage: Storage, public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+  constructor(public http: HTTP, public storage: Storage, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public network: Network) {
+    let connectSubscription = this.network.onConnect().subscribe(() => {
+      console.log("network connected!");
+      setTimeout(() => {
+        this.connected = true;
+      }, 3000);
+    });
 
+    let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
+      console.log("network disconnected");
+      this.connected = false;
+    });
   }
 
   setCredentials(email, password) {
@@ -127,7 +139,7 @@ export class OsmProvider {
     }, this.chainError);
   }
 
-  sync(force = false) {
+  sync(force = false, loader = null) {
     return this.storage.get("osm_cache").then((val) => {
       if (val && val["lastUpdate"] && force != true) {
         var cacheAge = Math.abs((new Date()).getTime() - (new Date(val["lastUpdate"])).getTime()) / 36e5;
@@ -137,7 +149,10 @@ export class OsmProvider {
         }
       }
 
-      return this.updateCache();
+      if (loader) {
+        loader.present();
+      }
+      return this.updateCache(loader);
     }, this.chainError);
   }
 
@@ -145,21 +160,33 @@ export class OsmProvider {
     let loading = this.loadingCtrl.create({
       content: "Syncing..."
     });
-
-    loading.present();
-
-    return this.sync().then((data) => {
+    return this.sync(false, loading).then((data) => {
       loading.dismiss();
       return data;
-    }, this.chainError);
+    }, this.chainError).catch((err) => {
+      loading.dismiss();
+    });
   }
 
-  updateCache() {
+  updateLoader(loader, message) {
+    if (loader) {
+      loader.setContent(message);
+    }
+  }
+
+  updateCache(loader = null) {
     let programme = [];
     let events = [];
     let noticeboard = "";
     let lastUpdate = new Date();
 
+    if (!this.connected) {
+      return new Promise((resolve, reject) => {
+        throw new Error("Problem updating cache: Cannot connect to the internet");
+      });
+    }
+
+    this.updateLoader(loader, "Fetching programme...");
     return this.getProgramme().then((p) => {
       programme = p;
       return this.getEvents();
@@ -171,19 +198,23 @@ export class OsmProvider {
         promises.push(promise);
       }
 
+      this.updateLoader(loader, "Fetching event details...");
       return Promise.all(promises);
     }, this.chainError).then((e) => {
       events = e;
+      this.updateLoader(loader, "Fetching noticeboard...");
       return this.getNoticeboard();
     }, this.chainError).then((n) => {
       noticeboard = n;
-    }, this.chainError).then(() => {
+
       let output = {
         programme: programme,
         events: events,
         noticeboard: noticeboard,
         lastUpdate: lastUpdate,
       };
+
+      this.updateLoader(loader, "Updating cache...");
       this.storage.set("osm_cache", output);
       this.cache = output;
       return output;
