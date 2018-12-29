@@ -4,10 +4,6 @@
 
 Scout Penknife is an app which is designed for scouts which provides useful tools and utilities, [see below for a full list of features](#features).
 
-## Todo
-
-- [ ] Connectivity check before syncing
-
 ## Features
 
 - [x] Online Scout Manager Support *(parent accounts only)*
@@ -31,7 +27,7 @@ ionic build android
 ionic build ios
 ```
 
-See [Ionic Documentation](http://ionicframework.com/docs/v3/guide/publishing.html) for more info on building apps.
+See [Ionic Documentation](https://ionicframework.com/docs/intro/deploying/) for more info on building apps.
 
 ## Download
 
