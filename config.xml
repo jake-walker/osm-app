@@ -3,7 +3,7 @@
     <name>Scout Penknife</name>
     <description>An app with many utilities for a scout.</description>
     <author email="hi@jakew.me" href="https://jakew.me/">Jake Walker</author>
-    <content original-src="index.html" src="http://192.168.1.133:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

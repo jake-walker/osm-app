@@ -16,14 +16,14 @@ export class OsmProvider {
   connected: boolean = false;
 
   constructor(public http: HTTP, public storage: Storage, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public network: Network) {
-    let connectSubscription = this.network.onConnect().subscribe(() => {
+    this.network.onConnect().subscribe(() => {
       console.log("network connected!");
       setTimeout(() => {
         this.connected = true;
       }, 3000);
     });
 
-    let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
+    this.network.onDisconnect().subscribe(() => {
       console.log("network disconnected");
       this.connected = false;
     });
